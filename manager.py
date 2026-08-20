@@ -1,10 +1,10 @@
 from models import JobApplication
 from validators import (
     validate_text,
+    validate_id,
     validate_date,
     validate_status
 )
-
 
 class JobApplicationManager:
 
@@ -13,6 +13,8 @@ class JobApplicationManager:
 
     def add(self, application_id, company, role,
             location, date, status, skills, notes):
+        
+        application_id = validate_id(application_id)
 
         for app in self.applications:
             if app.application_id == application_id:
