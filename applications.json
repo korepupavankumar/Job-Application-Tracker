@@ -1,0 +1,16 @@
+[
+    {
+        "id": "AP222",
+        "company": "Microsoft",
+        "role": "AI Engineer",
+        "location": "Banglore",
+        "application_date": "2026-08-24",
+        "status": "Applied",
+        "skills": [
+            "Gen AI",
+            "Agentic AI",
+            "Machine Learning"
+        ],
+        "notes": "Applied through company careers portal"
+    }
+]
