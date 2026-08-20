@@ -19,6 +19,21 @@ def validate_text(value, field):
     return value
 
 
+def validate_id(application_id):
+    application_id = application_id.strip().upper()
+
+    if (
+        len(application_id) != 5
+        or not application_id.startswith("AP")
+        or not application_id[2:].isdigit()
+    ):
+        raise ValueError(
+            "Application ID must be in format AP001."
+        )
+
+    return application_id
+
+
 def validate_date(value):
     try:
         datetime.strptime(value, "%Y-%m-%d")
