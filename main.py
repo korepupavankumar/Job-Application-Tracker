@@ -43,11 +43,27 @@ def main():
 
             if choice == "1":
 
-                app_id = input("Application ID: ")
+                # Validate Application ID immediately
+                while True:
+                    app_id = input(
+                        "Application ID (example: AP001): "
+                    ).strip().upper()
+
+                    if (
+                        len(app_id) == 5
+                        and app_id.startswith("AP")
+                        and app_id[2:].isdigit()
+                    ):
+                        break
+
+                    print("Invalid ID. Please use format AP001.")
+
                 company = input("Company: ")
                 role = input("Role: ")
                 location = input("Location: ")
-                date = input("Application Date (YYYY-MM-DD): ")
+                date = input(
+                    "Application Date (YYYY-MM-DD): "
+                )
                 status = input("Status: ")
 
                 skills = input(
@@ -82,7 +98,9 @@ def main():
 
             elif choice == "3":
 
-                keyword = input("Search company or role: ")
+                keyword = input(
+                    "Search company or role: "
+                )
 
                 results = manager.search(keyword)
 
@@ -130,7 +148,10 @@ def main():
 
                 save_applications(manager.applications)
 
-                print("Thank you for using Job Application Tracker.")
+                print(
+                    "Thank you for using "
+                    "Job Application Tracker."
+                )
                 break
 
             else:
