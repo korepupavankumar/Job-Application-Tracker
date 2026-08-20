@@ -4,7 +4,7 @@ from pathlib import Path
 from models import JobApplication
 
 
-FILE = Path("data/applications.json")
+FILE = Path(__file__).parent / "data" / "applications.json"
 
 
 def load_applications():
@@ -12,7 +12,7 @@ def load_applications():
         return []
 
     try:
-        with open(FILE, "r") as file:
+        with open(FILE, "r", encoding="utf-8") as file:
             data = json.load(file)
 
         return [
@@ -32,5 +32,5 @@ def save_applications(applications):
         for application in applications
     ]
 
-    with open(FILE, "w") as file:
+    with open(FILE, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
